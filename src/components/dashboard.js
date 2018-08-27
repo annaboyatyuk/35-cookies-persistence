@@ -10,12 +10,12 @@ import { signup } from '../store/login';
 
 class Dashboard extends Component {
 
-  componentDidMount() {
-    superagent
-      .get('http://localhost:3002/usernames/jane')
-      // .auth('jane', 'jane')
-      .then(res => console.log(res));
-  }
+  // componentDidMount() {
+  //   superagent
+  //     .get('http://localhost:3002/usernames/jane')
+  //     // .auth('jane', 'jane')
+  //     .then(res => console.log(res));
+  // }
 
   createRandomThing() {
     return { name: 'thing' + Math.floor(Math.random() * 100) };

@@ -3,7 +3,8 @@ import { Provider } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
 import store from './store';
-import Dashboard from './components/dashboard';
+import Home from './components/home';
+
 
 class App extends Component {
   render() {
@@ -11,7 +12,7 @@ class App extends Component {
       <Provider store={store}>
         <BrowserRouter>
           <div className="App">
-            <Route exact path="/" component={Dashboard} />
+            <Route exact path="/" component={Home} />
           </div>
         </BrowserRouter>
       </Provider>

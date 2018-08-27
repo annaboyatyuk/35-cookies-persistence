@@ -18,7 +18,7 @@ class LoginForm extends React.Component {
 
           <input required type="text" />
 
-          <input type="submit" value='SIGNUP' />
+          <input type="submit" value='LOGIN' />
 
 
         </form>

@@ -5,7 +5,7 @@
 ===
 
 ## Links
-  * PR - 
+  * PR - https://github.com/annaboyatyuk/35-cookies-persistence/pull/1
   * Travis - https://travis-ci.com/annaboyatyuk/35-cookies-persistence/builds
   * Heroku - 
 

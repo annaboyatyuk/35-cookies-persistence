@@ -1,8 +1,9 @@
 import superagent from 'superagent';
 
+
 let initialState = false;
 // Actions
-const LOGIN = 'LOGIN';
+const TRUEFALSE = 'TRUEFALSE'
 
 
 // Reducer
@@ -11,42 +12,41 @@ export default (state = initialState, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case LOGIN:
-      return [
-        payload
-      ];
+      case TRUEFALSE:
+        return payload
     default: return state;
   }
 }
 
-// Action Creators
-// export const login = (thing) => { 
-// }
 
-export const signup = (newUser) => {
+export const trueFalse = (boolean) => ({
+  type: TRUEFALSE,
+  payload: boolean
+})
 
+export const signupUser = (newUser) => {
   return dispatch => {
     superagent
-      .post(`${process.env.API_URL}/signup`)
+      .post(`${process.env.REACT_APP_API_URL}/signup`)
       .send(newUser)
       .then(res => {
         localStorage.token = JSON.stringify(res.text)
-        dispatch(login())
+        dispatch(trueFalse(true))
       })
   }
 }
 
 
 
-export const login = (user) => {
+export const loginUser = (user) => {
 
   return dispatch => {
     superagent
-      .get(`${process.env.API_URL}/login`)
+      .get(`${process.env.REACT_APP_API_URL}/login`)
         .auth(user.username, user.password)
         .then(res => {
           localStorage.token = JSON.stringify(res.text);
-          dispatch(login());
+          dispatch(trueFalse(true));
         })
   };
 }

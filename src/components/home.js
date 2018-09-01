@@ -1,37 +1,62 @@
 import React, { Component, Fragment } from 'react';
-// import { connect } from 'react-redux';
-import superagent from 'superagent';
+import { connect } from 'react-redux';
+import {Redirect} from 'react-router-dom';
 
 import '../style/style.css'
 
 import Signup from './signup';
 import Login from './login';
 
-import { signup, login } from '../store/login';
+import { signupUser, loginUser } from '../store/login';
 
 class Home extends Component {
 
-  // componentDidMount() {
-  //   superagent
-  //     .get('http://localhost:3002/usernames/jane')
-  //     // .auth('jane', 'jane')
-  //     .then(res => console.log(res));
-  // }
+
 
   render() {
+
+    console.log('2323232323', this.props.login)
+
+    if(localStorage.token) {
+      return(
+        <Redirect to='/dashboard' />
+      )
+    }
+
+    else {
+
     return (
+
       <Fragment>
+
         <h1>home</h1>
 
-          <Signup/>
+        <h4>SIGNUP</h4>
 
-          <Login/>
+        <Signup onComplete={this.props.signupUser} loginTrue={this.props.login}/>
+
+        <h4>LOGIN</h4>
+
+        <Login onComplete={this.props.loginUser} loginTrue={this.props.login}/>
+
       </Fragment>
     );
+
+  }
   }
 }
 
+const mapStateToProps = state => ({
+  login: state.loginState,
+});
+
+const mapDispatchToProps = dispatch => ({
+  loginUser: user => dispatch(loginUser(user)), 
+  signupUser: user => dispatch(signupUser(user))
+})
 
 
-
-export default Home;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Home);

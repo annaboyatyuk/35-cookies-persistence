@@ -15,7 +15,6 @@ class Home extends Component {
 
   render() {
 
-    console.log('2323232323', this.props.login)
 
     if(localStorage.token) {
       return(

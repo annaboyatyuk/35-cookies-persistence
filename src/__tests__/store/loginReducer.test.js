@@ -1,6 +1,6 @@
 import React from 'react';
 import loginReducer from '../../store/login.js';
-import {trueFalse, loginUser} from '../../store/login.js';
+import {trueFalse} from '../../store/login.js';
 
 
 describe('login reducers', () => {
@@ -10,10 +10,8 @@ describe('login reducers', () => {
   })
 
   it('should set to true', () => {
-    let created = trueFalse(true) ;
-    expect(created.payload).toBe(true);
+    let created = loginReducer([], trueFalse(true)) ;
+    expect(created).toBe(true);
   })
-
-
 
 })

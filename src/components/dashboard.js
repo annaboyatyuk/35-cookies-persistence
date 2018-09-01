@@ -1,21 +1,12 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import superagent from 'superagent';
 import { addThing, addThingAsync } from '../store/thing';
 
 import '../style/style.css'
 
-import Signup from './signup';
-import { signup } from '../store/login';
 
 class Dashboard extends Component {
 
-  // componentDidMount() {
-  //   superagent
-  //     .get('http://localhost:3002/usernames/jane')
-  //     // .auth('jane', 'jane')
-  //     .then(res => console.log(res));
-  // }
 
   createRandomThing() {
     return { name: 'thing' + Math.floor(Math.random() * 100) };
@@ -47,8 +38,6 @@ class Dashboard extends Component {
 
           }
 
-          {/* <button onClick={() => <Signup/>}>Signup</button> */}
-          <Signup/>
       </Fragment>
     );
   }

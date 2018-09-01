@@ -41,7 +41,7 @@ class SignupForm extends React.Component {
 
           <label>Email</label>
 
-          <input required type="text" name='email' value={this.state.email}/>
+          <input required type="email" name='email' value={this.state.email}/>
 
           <input type="submit" value='SIGNUP'/>
 
